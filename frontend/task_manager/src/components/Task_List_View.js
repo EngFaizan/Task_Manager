@@ -18,7 +18,7 @@ const TaskListView = () => {
   }, []);
 
   const handleEdit = (taskId) => {
-    navigate(`/taskform/${taskId}`); // Navigate to TaskForm with taskId as parameter
+    navigate(`/taskform/${taskId}`);
   };
 
   const handleDelete = (taskId) => {
@@ -29,6 +29,10 @@ const TaskListView = () => {
       .catch(error => {
         console.error('Error deleting task:', error);
       });
+  };
+
+  const handleTaskClick = (taskId) => {
+    navigate(`/taskdetail/${taskId}`);
   };
 
   const handleAddNewTaskClick = () => {
@@ -44,7 +48,7 @@ const TaskListView = () => {
           tasks.map((task) => (
             <div key={task.id} className="task-item">
               <div className="task-info">
-                <h3>{task.title}</h3>
+                <h3 onClick={() => handleTaskClick(task.id)} style={{ cursor: 'pointer' }}>{task.title}</h3>
               </div>
               <div id='buttons' className="task-actions">
                 <button id='editButton' onClick={() => handleEdit(task.id)}>Edit</button>

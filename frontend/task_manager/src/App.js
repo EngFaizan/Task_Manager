@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import TaskForm from './components/Task_Creation_Form';
 import TaskListView from './components/Task_List_View';
+import TaskDetailView from './components/Task_Detail_View';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<TaskListView />} />
           <Route path="/taskform" element={<TaskForm />} />
           <Route path="/taskform/:taskId" element={<TaskForm />} />
+          <Route path="/taskdetail/:id" element={<TaskDetailView />} />
         </Routes>
       </Router>
     </div>
