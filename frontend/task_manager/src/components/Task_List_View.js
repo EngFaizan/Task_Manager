@@ -1,21 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../styling/Task_List.css';
 
 const TaskListView = () => {
-  const [tasks, setTasks] = useState([
-    { title: 'Sample Task 1', description: 'This is a sample task', status: 'pending', dueDate: '2024-06-01' },
-    // { title: 'Sample Task 2', description: 'This is another sample task', status: 'in progress', dueDate: '2024-06-15' },
-  ]);
+  const [tasks, setTasks] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/api/tasks/')
+      .then(response => {
+        setTasks(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching tasks:', error);
+      });
+  }, []);
 
   const handleEdit = (index) => {
     alert(`Edit task at index: ${index}`);
   };
 
-  const handleDelete = (index) => {
-    const updatedTasks = tasks.filter((_, i) => i !== index);
-    setTasks(updatedTasks);
+  const handleDelete = (taskId) => {
+    axios.delete(`http://localhost:8000/api/tasks/${taskId}/`)
+      .then(() => {
+        window.location.reload();
+      })
+      .catch(error => {
+        console.error('Error deleting task:', error);
+      });
   };
 
   const handleAddNewTaskClick = () => {
@@ -28,14 +41,14 @@ const TaskListView = () => {
         {tasks.length === 0 ? (
           <p>No tasks added yet.</p>
         ) : (
-          tasks.map((task, index) => (
-            <div key={index} className="task-item">
+          tasks.map((task) => (
+            <div key={task.id} className="task-item">
               <div className="task-info">
                 <h3>{task.title}</h3>
               </div>
               <div id='buttons' className="task-actions">
-                <button id='editButton' onClick={() => handleEdit(index)}>Edit</button>
-                <button id='deleteButton' onClick={() => handleDelete(index)}>Delete</button>
+                <button id='editButton' onClick={() => handleEdit(task.id)}>Edit</button>
+                <button id='deleteButton' onClick={() => handleDelete(task.id)}>Delete</button>
               </div>
             </div>
           ))
