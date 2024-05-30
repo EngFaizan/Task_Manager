@@ -26,11 +26,12 @@ python manage.py runserver
 
 The backend server will start running on http://localhost:8000.
 
-### 3. Start the Frontend Server
+# 3. Start the Frontend Server
 Ensure you have Node.js and npm installed on your system.
 
 Open new terminal in VSCode
 Navigate to the frontend directory: cd frontend
+
 Install dependencies:
 npm install
 
@@ -39,7 +40,7 @@ npm start
 
 The frontend server will start running on http://localhost:3000.
 
-Usage
+# Usage
 Once both the backend and frontend servers are running, you can access the Task Manager application by visiting http://localhost:3000 in your web browser.
 
 You can perform CRUD (Create, Read, Update, Delete) operations on tasks using the application.
