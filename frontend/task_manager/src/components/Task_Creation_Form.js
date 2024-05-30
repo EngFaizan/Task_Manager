@@ -1,21 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom'; // Update import
 import '../styling/Task_Form.css';
 
 const TaskForm = ({ onSubmit }) => {
+  const { taskId } = useParams();
+  const navigate = useNavigate(); // Add navigate function
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [status, setStatus] = useState('pending');
   const [dueDate, setDueDate] = useState('');
   const [errors, setErrors] = useState({});
 
+  useEffect(() => {
+    if (taskId) {
+      axios.get(`http://localhost:8000/api/tasks/${taskId}`)
+        .then(response => {
+          const { title, description, status, due_date } = response.data;
+          setTitle(title);
+          setDescription(description);
+          setStatus(status);
+          setDueDate(due_date);
+        })
+        .catch(error => {
+          console.error('Error fetching task:', error);
+        });
+    }
+  }, [taskId]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const task = { title, description, status, due_date: dueDate };
 
-    axios.post('http://localhost:8000/api/tasks/', task)
+    const request = taskId ? axios.put(`http://localhost:8000/api/tasks/${taskId}/`, task) : axios.post('http://localhost:8000/api/tasks/', task);
+
+    request
       .then(response => {
-        console.log('Task submitted successfully:', response.data);
+        console.log(taskId ? 'Task Updated Successfully' : 'Task Submitted Successfully:', response.data);
         setTitle('');
         setDescription('');
         setStatus('pending');
@@ -24,6 +45,7 @@ const TaskForm = ({ onSubmit }) => {
         if (onSubmit) {
           onSubmit(response.data);
         }
+        navigate(-1); // Navigate back to previous page
       })
       .catch(error => {
         if (error.response && error.response.data) {
@@ -74,7 +96,7 @@ const TaskForm = ({ onSubmit }) => {
           />
           {errors.due_date && <p className="error">{errors.due_date[0]}</p>}
         </label>
-        <button type="submit">Add Task</button>
+        <button type="submit">{taskId ? 'Update' : 'Add Task'}</button>
       </form>
     </div>
   );

@@ -17,8 +17,8 @@ const TaskListView = () => {
       });
   }, []);
 
-  const handleEdit = (index) => {
-    alert(`Edit task at index: ${index}`);
+  const handleEdit = (taskId) => {
+    navigate(`/taskform/${taskId}`); // Navigate to TaskForm with taskId as parameter
   };
 
   const handleDelete = (taskId) => {
