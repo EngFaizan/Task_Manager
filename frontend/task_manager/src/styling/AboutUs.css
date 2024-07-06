@@ -1,5 +1,5 @@
 
-.task-detail-page {
+.about-main {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -10,7 +10,7 @@
 }
 
 
-.task-detail-container {
+.about-container {
   width: 40%;
   padding: 20px;
   background-color: rgba(244, 244, 244, 0.5); 
@@ -19,14 +19,6 @@
   color: black;
 }
 
-.task-detail {
+.about-detail {
   margin-bottom: 20px;
-}
-
-.task-detail p {
-  margin: 5px 0;
-}
-
-.task-detail p:first-child {
-  font-weight: bold;
 }

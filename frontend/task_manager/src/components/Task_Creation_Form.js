@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom'; // Update import
+import { useParams, useNavigate } from 'react-router-dom';
 import '../styling/Task_Form.css';
 
 const TaskForm = ({ onSubmit }) => {
   const { taskId } = useParams();
-  const navigate = useNavigate(); // Add navigate function
+  const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [status, setStatus] = useState('pending');

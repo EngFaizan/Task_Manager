@@ -1,0 +1,45 @@
+.home-page {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 75vh;
+    background: url('../task-manager.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 2rem;
+  }
+  
+  .intro {
+    flex: 1;
+    max-width: 40%;
+    animation: slide-in 1s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .intro p {
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0; /* Removes any default margins */
+  }
+
+  /* .go-to-tasks-btn {
+
+  } */
+  
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
