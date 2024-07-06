@@ -1,0 +1,25 @@
+
+.about-main {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 75vh;
+    background: url('../task-manager.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 2rem;
+  }
+  
+  
+  .about-container {
+    width: 40%;
+    padding: 20px;
+    background-color: rgba(244, 244, 244, 0.5); 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: black;
+  }
+  
+  .about-detail {
+    margin-bottom: 20px;
+  }
+  
