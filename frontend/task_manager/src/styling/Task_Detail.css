@@ -1,25 +1,32 @@
+
+.task-detail-page {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 75vh;
+  background: url('../task-manager.jpg') no-repeat center center fixed;
+  background-size: cover;
+  padding: 2rem;
+}
+
+
 .task-detail-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .task-detail {
-    margin-bottom: 20px;
-  }
-  
-  .task-detail h2 {
-    margin-top: 0;
-  }
-  
-  .task-detail p {
-    margin: 5px 0;
-  }
-  
-  .task-detail p:first-child {
-    font-weight: bold;
-  }
-  
+  width: 40%;
+  padding: 20px;
+  background-color: rgba(244, 244, 244, 0.5); 
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.task-detail {
+  margin-bottom: 20px;
+}
+
+.task-detail p {
+  margin: 5px 0;
+}
+
+.task-detail p:first-child {
+  font-weight: bold;
+}

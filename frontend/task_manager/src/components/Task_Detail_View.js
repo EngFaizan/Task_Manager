@@ -22,13 +22,15 @@ const TaskDetailView = () => {
   }
 
   return (
-    <div className="task-detail-container"> {/* Apply the CSS class */}
-      <h2>Task Detail View</h2>
-      <div className="task-detail">
-        <p><span>Title:</span> {task.title}</p>
-        <p><span>Description:</span> {task.description}</p>
-        <p><span>Status:</span> {task.status}</p>
-        <p><span>Due Date:</span> {task.due_date}</p>
+    <div className="task-detail-page">
+      <div className="task-detail-container">
+        <h2>Task Detail View</h2>
+        <div className="task-detail">
+          <p><span>Title:</span> {task.title}</p>
+          <p><span>Description:</span> {task.description}</p>
+          <p><span>Status:</span> {task.status}</p>
+          <p><span>Due Date:</span> {task.due_date}</p>
+        </div>
       </div>
     </div>
   );
