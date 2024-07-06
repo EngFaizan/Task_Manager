@@ -1,7 +1,7 @@
 .task-list-container {
   padding: 20px;
-  padding-bottom: 100px; /* Add extra padding at the bottom */
-  height: calc(100vh - 100px); /* Adjust this value to the height of your header */
+  padding-bottom: 100px;
+  height: calc(100vh - 100px);
   overflow-y: auto;
   background: url('../task-manager.jpg') no-repeat center center fixed;
   background-size: cover;
